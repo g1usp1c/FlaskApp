@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %}Le notizie del giorno{% endblock %}</h1>
+    {% for feed in feeds %}
+    <div style="border:1px ; overflow:visible">
+        <div style="background-color: #de2a2a; overflow:visible; min-height: auto; width: 1000px; "></div>      
+        <a href="{{ url_for('feed', feed_id=feed['titolo']) }}">
+            <h2 style="font-size: 1.0rem; font: Arial; height: auto;overflow:visible; ">
+                {{ feed['titolo'] }} <img src="{{ feed['immagine'] }}" alt="" style="float:left;margin: 1px" height="80" width="80">
+            </h2>
+        </a>
+        <div style="border:0.5px ; overflow:visible;width: 1000px;">
+            <div style="background-color: #de2a2a; overflow:visible"></div>        
+            <p style="font-size: 0.8rem; color: rgb(9, 9, 10);font: Arial; height: auto;overflow:visible" align="justify" >
+                {{ feed['sommario'] }} 
+            </p>  
+            <div style="background-color: #2be7b8;overflow:visible"></div>
+        </div> 
+        <div style="border:1px ; overflow:visible; width: 1000px;">
+            <div style="background-color: #de2a2a; overflow:visible"></div>        
+            <p style="font-size: 0.7rem" >
+                {{ feed['fonte'] }} / {{ feed['autore'] }} del {{ feed['pubblicato'] }}  
+            </p>
+            <div style="background-color: #2be7b8;overflow:visible"></div>
+        </div> 
+        <div style="background-color: #2be7b8;overflow:visible"></div>
+    </div> 
+
+    {% endfor %}
+
+{% endblock %}

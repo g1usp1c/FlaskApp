@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+   <h2>{% block title %} {{ titolo }} {% endblock %}</h2>
+    <span>{{ fonte }} / {{ autore }} del {{ data }}</span>
+    <p style="font: Arial">
+        <pre>{{ contenuto }}</pre>
+    </p> 
+
+    <a href="{{ link }}">Vai al sito</a> 
+{% endblock %}
